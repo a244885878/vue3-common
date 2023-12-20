@@ -2,7 +2,7 @@
   "name": "vue3-common",
   "version": "0.1.0",
   "private": true,
-  "main": "lib/star-common.umd.min.js",
+  "main": "lib/vue3-common.umd.min.js",
   "files": [
     "lib/",
     "README.md"

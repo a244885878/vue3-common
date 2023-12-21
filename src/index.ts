@@ -1,35 +1,27 @@
-import { App } from 'vue'
-import BaseTable from '@/components/BaseTable/index.vue'
-import Paging from '@/components/Paging/index.vue'
-import QueryContainer from '@/components/QueryContainer/index.vue'
-import SvgIcon from '@/components/SvgIcon/index.vue'
-import TableContainer from '@/components/TableContainer/index.vue'
-import Video from '@/components/Video/index.vue'
+import { App, defineComponent } from 'vue';
+import QueryContainer from "@/components/QueryContainer/index.vue"
+import TableContainer from "@/components/TableContainer/index.vue"
+import Paging from "@/components/Paging/index.vue"
+import SvgIcon from "@/components/SvgIcon/index.vue"
+import BaseTable from "@/components/BaseTable/index.vue"
+import Video from "@/components/Video/index.vue"
 
-const components = [
-  BaseTable, 
-  Paging,
+export const componentsList: Record<string, ReturnType<typeof defineComponent>> = {
   QueryContainer,
-  SvgIcon,
   TableContainer,
-  Video
-]
-
-// 定义 install 方法， App 作为参数
-const install = (app: App): void => {
-  // 遍历注册所有组件
-  components.map((component) => app.component(component.name, component))
-}
-
-export {
-  BaseTable, 
   Paging,
-  QueryContainer,
   SvgIcon,
-  TableContainer,
+  BaseTable,
   Video
 }
 
-export default {
-  install
+const components = {
+  install: function (Vue: App) {
+    Object.keys(componentsList).forEach(key => {
+      // 注册所有自定义指令
+      Vue.component(key, componentsList[key])
+    })
+  }
 }
+
+export default components

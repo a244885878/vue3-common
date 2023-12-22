@@ -1,7 +1,7 @@
 {
   "name": "vue3-common",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "main": "lib/vue3-common.umd.min.js",
   "typings": "src/shims-vue.d.ts",
   "files": [
